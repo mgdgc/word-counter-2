@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import CoreData
 
 struct ListCell: View {
     let writing: FetchedResults<Writing>.Element

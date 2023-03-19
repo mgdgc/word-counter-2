@@ -29,6 +29,6 @@
 
 // MARK: - SpaceType
 "includeBoth" = "모두 포함";
-"inlcudeSpace" = "띄어쓰기만 포함";
+"includeSpace" = "띄어쓰기만 포함";
 "includeEnter" = "줄바꿈만 포함";
 "neither" = "둘 다 포함하지 않음";

@@ -29,7 +29,7 @@
 
 // MARK: - SpaceType
 "includeBoth" = "Include Both";
-"inlcudeSpace" = "Include Only Spaces";
+"includeSpace" = "Include Only Spaces";
 "includeEnter" = "Include Only Enters";
 "neither" = "Neither";
 

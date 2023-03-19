@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import CoreData
 
 struct CounterInfoView: View {
     @Binding var count: Count
@@ -72,6 +73,7 @@ struct CounterInfoView: View {
 struct CounterView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.dismiss) var dismiss
     
     @Binding var writing: FetchedResults<Writing>.Element?
     
@@ -147,6 +149,8 @@ struct CounterView: View {
     }
     
     private func save(text: String) {
+        saveContext()
+        
         let newId = UUID().uuidString
         
         let writing = Writing(context: managedObjectContext)
@@ -159,15 +163,24 @@ struct CounterView: View {
         // Clear
         self.text = ""
         self.writing = nil
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            dismiss()
+        }
     }
     
     private func edit(writing: FetchedResults<Writing>.Element, toUpdate text: String) {
-        writing.text = text
-        writing.timestamp = Date()
         
         saveContext()
         
-        managedObjectContext.refresh(writing, mergeChanges: true)
+        writing.setValue(text, forKey: "text")
+        writing.setValue(Date(), forKey: "timestamp")
+        
+        saveContext()
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            dismiss()
+        }
     }
 }
 
