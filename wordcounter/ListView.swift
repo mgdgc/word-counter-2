@@ -36,7 +36,8 @@ struct ListView: View {
         entity: Writing.entity(),
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Writing.timestamp, ascending: false)
-        ]) var writings: FetchedResults<Writing>
+        ]
+    ) var writings: FetchedResults<Writing>
     
     @Binding var selected: FetchedResults<Writing>.Element?
     @State private var activeNewCounter: Bool = false
@@ -56,6 +57,13 @@ struct ListView: View {
                                     .onTapGesture {
                                         self.selected = writing
                                     }
+                            }
+                            .swipeActions {
+                                Button("delete", role: .destructive) {
+                                    managedObjectContext.delete(writing)
+                                    saveContext()
+                                    selected = nil
+                                }
                             }
                         }
                     } header: {
@@ -144,7 +152,16 @@ struct ListView: View {
         }
     }
     
+    private func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
+    }
+    
     private func newCounter() {
+        selected = nil
         activeNewCounter = true
     }
 }

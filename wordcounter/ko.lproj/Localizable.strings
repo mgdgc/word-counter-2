@@ -8,6 +8,10 @@
 
 "app_name" = "워드 카운터";
 
+// MARK: - General Texts
+"confirm" = "확인";
+"delete" = "제거";
+
 // MARK: - ListView
 "list_title" = "글 목록";
 "list_new" = "새 카운터";

@@ -8,6 +8,10 @@
 
 "app_name" = "WordCounter";
 
+// MARK: - General Texts
+"confirm" = "Confirm";
+"delete" = "Delete";
+
 // MARK: - ListView
 "list_title" = "Writings";
 "list_new" = "New Counter";

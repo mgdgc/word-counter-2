@@ -16,6 +16,7 @@ struct AppMain: App {
     var body: some Scene {
         WindowGroup {
             SplitView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
     

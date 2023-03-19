@@ -113,12 +113,23 @@ struct CounterView: View {
             .padding([.top], 8)
             .padding([.leading, .trailing], 20)
         }
+        .task {
+            // MARK: - 기존 데이터 fetch
+            if let writing = writing {
+                self.text = writing.text ?? ""
+            }
+        }
+        .id(writing?.id)
         .navigationTitle("app_name")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    // TODO: Action
+                    if let writing = writing {
+                        edit(writing: writing, toUpdate: text)
+                    } else {
+                        save(text: text)
+                    }
                 } label: {
                     Text("counter_save")
                 }
@@ -136,16 +147,27 @@ struct CounterView: View {
     }
     
     private func save(text: String) {
+        let newId = UUID().uuidString
+        
         let writing = Writing(context: managedObjectContext)
-        writing.id = UUID().uuidString
+        writing.id = newId
         writing.text = text
         writing.timestamp = Date()
         
         saveContext()
+        
+        // Clear
+        self.text = ""
+        self.writing = nil
     }
     
-    private func edit() {
+    private func edit(writing: FetchedResults<Writing>.Element, toUpdate text: String) {
+        writing.text = text
+        writing.timestamp = Date()
         
+        saveContext()
+        
+        managedObjectContext.refresh(writing, mergeChanges: true)
     }
 }
 
