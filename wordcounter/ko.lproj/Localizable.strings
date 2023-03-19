@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  wordcounter
+
+  Created by 최명근 on 2023/03/18.
+  
+*/
+
+"app_name" = "워드 카운터";
+
+// MARK: - ListView
+"list_title" = "글 목록";
+"list_new" = "새 카운터";
+"list_saved" = "저장된 항목";
+"list_empty_writing" = "빈 카운터";
+"list_empty_list" = "새 카운터를 생성하여 시작하세요";
+
+// MARK: - CounterView
+"counter_save" = "저장";
+"counter_empty" = "입력을 시작하세요";
+"counter_placeholder" = "글을 입력하거나 붙여넣기 하세요";
+"counter_letters" = "글자 수";
+"counter_words" = "단어 수";
+"counter_bytes" = "바이트 수";
+
+// MARK: - SpaceType
+"includeBoth" = "모두 포함";
+"inlcudeSpace" = "띄어쓰기만 포함";
+"includeEnter" = "줄바꿈만 포함";
+"neither" = "둘 다 포함하지 않음";

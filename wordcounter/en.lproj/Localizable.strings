@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  wordcounter
+
+  Created by 최명근 on 2023/03/18.
+  
+*/
+
+"app_name" = "WordCounter";
+
+// MARK: - ListView
+"list_title" = "Writings";
+"list_new" = "New Counter";
+"list_saved" = "Saved";
+"list_empty_writing" = "Empty";
+"list_empty_list" = "Create a new counter to start counting.";
+
+// MARK: - CounterView
+"counter_save" = "Save";
+"counter_empty" = "Start Writing";
+"counter_placeholder" = "Write or paste something here";
+"counter_letters" = "Letters";
+"counter_words" = "Words";
+"counter_bytes" = "Bytes";
+
+// MARK: - SpaceType
+"includeBoth" = "Include Both";
+"inlcudeSpace" = "Include Only Spaces";
+"includeEnter" = "Include Only Enters";
+"neither" = "Neither";
+

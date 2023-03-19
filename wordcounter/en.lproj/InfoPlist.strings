@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  wordcounter
+
+  Created by 최명근 on 2023/03/18.
+  
+*/
+
+CFBundleName = "WordCounter";
