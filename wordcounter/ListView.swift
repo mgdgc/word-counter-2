@@ -58,7 +58,7 @@ struct ListView: View {
     var body: some View {
         ZStack {
             Color("ColorBgSecondary")
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea(.all)
             
             if writings.count > 0 {
                 // MARK: 저장된 항목
@@ -83,7 +83,6 @@ struct ListView: View {
                         Text("list_saved")
                     }
                 }
-                .padding([.bottom], 100)
                 .id(renderId)
                 .onReceive(publisher) { output in
                     print("NSManagedObjectContextObjectsDidChange")
@@ -94,22 +93,14 @@ struct ListView: View {
                 VStack(spacing: 24) {
                     Image(uiImage: UIImage(named: "ic_no_content")!)
                         .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(Color("ColorTextTertiary"))
                         .aspectRatio(1.56, contentMode: .fit)
                         .frame(maxWidth: 256)
                     
                     Text("list_empty_list")
                         .font(SwiftUI.Font.headline)
                         .foregroundColor(Color("ColorTextTertiary"))
-                    
-                    Button {
-                        newCounter()
-                    } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("list_new")
-                        }
-                    }
-                    .buttonStyle(.bordered)
 
                     Spacer()
                         .frame(height: 60)
@@ -117,43 +108,16 @@ struct ListView: View {
                 .padding(16)
             }
             
-            // MARK: - 새 카운터 액션 버튼
-            VStack(alignment: .leading) {
-                Spacer()
-                HStack {
-                    Button {
-                        newCounter()
-                    } label: {
-                        Image(systemName: "square.and.pencil")
-                            .resizable()
-                    }
-                    .foregroundColor(Color("ColorPrimary"))
-                    .padding(20)
-                    .frame(width: 64, height: 64)
-                    .background(
-                        Rectangle()
-                            .fill(Color("ColorBgPrimary"))
-                            .cornerRadius(32)
-                            .shadow(
-                                color: Color.black.opacity(0.1),
-                                radius: 8,
-                                y: 4)
-                    )
-                    Spacer()
-                }
-                .padding(20)
-            }
         }
         .navigationTitle("list_title")
-        .navigationBarTitleDisplayMode(.inline)
         // MARK: - Toolbar
         .toolbar {
-            // MARK: Information Toolbar Item
-            ToolbarItem(placement: .navigationBarLeading) {
+            // MARK: New Counter
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    showInfoView = true
+                    newCounter()
                 } label: {
-                    Image(systemName: "info.circle")
+                    Image(systemName: "square.and.pencil")
                 }
             }
         }
@@ -184,5 +148,11 @@ struct ListView: View {
     private func newCounter() {
         selected = nil
         activeNewCounter = true
+    }
+}
+
+struct ListView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplitView()
     }
 }

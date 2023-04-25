@@ -36,3 +36,10 @@
 // MARK: - SettingView
 "setting_title" = "Settings";
 "setting_new_counter_on_start" = "Open a new counter on start up";
+
+// MARK: - InfoView
+"info_section_app" = "Application Info";
+"info_version" = "Application Version";
+"info_build" = "Build Number";
+"info_section_developer" = "Developer";
+"info_developer" = "Developer";

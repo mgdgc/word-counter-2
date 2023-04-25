@@ -8,6 +8,22 @@
 import SwiftUI
 import UIKit
 
+struct InfoCell: View {
+    
+    var title: LocalizedStringKey
+    var content: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .foregroundColor(Color(uiColor: .label))
+            Spacer()
+            Text(content)
+                .foregroundColor(Color(uiColor: .secondaryLabel))
+        }
+    }
+}
+
 struct InfoView: View {
     
     @State var version: String = "v2.0"
@@ -15,36 +31,17 @@ struct InfoView: View {
     
     var body: some View {
         ZStack {
-            Color("ColorBgTertiary")
-                .edgesIgnoringSafeArea(.all)
-            
-            // MARK: - Application Info
-            VStack {
-                Image(uiImage: UIImage(named: "ic_symbol")!)
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(maxWidth: 256, maxHeight: 128)
-                Text("app_name")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(Color("ColorTextTertiary"))
-                Spacer()
-                    .frame(height: 20)
-                Text(version)
-                    .font(.caption)
-                    .foregroundColor(Color("ColorTextTertiary"))
-                Text(build)
-                    .font(.caption)
-                    .foregroundColor(Color("ColorTextTertiary"))
-            }
-            
-            // MARK: - Developer
-            VStack {
-                Spacer()
-                Link(destination: URL(string: "https://mgchoi.com")!) {
-                    HStack {
-                        Image(systemName: "wrench.and.screwdriver.fill")
-                        Text("MG Choi")
+            List {
+                Section {
+                    InfoCell(title: "info_version", content: version)
+                    InfoCell(title: "info_build", content: build)
+                } header: {
+                    Text("info_section_app")
+                }
+                
+                Section {
+                    Link(destination: URL(string: "https://mgchoi.com")!) {
+                        InfoCell(title: "info_developer", content: "mgchoi")
                     }
                 }
             }
@@ -68,4 +65,5 @@ struct InfoView_Previews: PreviewProvider {
         InfoView()
     }
 }
+
 
