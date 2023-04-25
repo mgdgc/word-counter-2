@@ -33,3 +33,6 @@
 "includeEnter" = "Include Only Enters";
 "neither" = "Neither";
 
+// MARK: - SettingView
+"setting_title" = "Settings";
+"setting_new_counter_on_start" = "Open a new counter on start up";

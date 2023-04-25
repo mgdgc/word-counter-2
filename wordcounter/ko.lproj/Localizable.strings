@@ -32,3 +32,7 @@
 "includeSpace" = "띄어쓰기만 포함";
 "includeEnter" = "줄바꿈만 포함";
 "neither" = "둘 다 포함하지 않음";
+
+// MARK: - SettingView
+"setting_title" = "설정";
+"setting_new_counter_on_start" = "시작할 때 새 카운터 열기";
