@@ -40,8 +40,20 @@ struct ListView: View {
         ]
     ) var writings: FetchedResults<Writing>
     
+    private let publisher = NotificationCenter.default.publisher(for: .NSManagedObjectContextObjectsDidChange)
+    @State private var renderId: UUID = UUID()
+    
+    // Selected Writing
     @Binding var selected: FetchedResults<Writing>.Element?
+    
+    // New Counter
     @State private var activeNewCounter: Bool = false
+    
+    // Info View Modal
+    @State private var showInfoView: Bool = false
+    
+    // Setting View Modal
+    @State private var showSettingView: Bool = false
     
     var body: some View {
         ZStack {
@@ -72,6 +84,11 @@ struct ListView: View {
                     }
                 }
                 .padding([.bottom], 100)
+                .id(renderId)
+                .onReceive(publisher) { output in
+                    print("NSManagedObjectContextObjectsDidChange")
+                    renderId = UUID()
+                }
             } else {
                 // MARK: 저장된 항목 없음
                 VStack(spacing: 24) {
@@ -129,27 +146,30 @@ struct ListView: View {
         }
         .navigationTitle("list_title")
         .navigationBarTitleDisplayMode(.inline)
+        // MARK: - Toolbar
         .toolbar {
             // MARK: Information Toolbar Item
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    // TODO: Action
+                    showInfoView = true
                 } label: {
                     Image(systemName: "info.circle")
                 }
             }
-            
-            // MARK: Setting Toolbar Item
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    // TODO: Action
-                } label: {
-                    Image(systemName: "gearshape")
-                }
-            }
         }
+        // MARK: - New Counter Navigation
         .navigationDestination(isPresented: $activeNewCounter) {
             CounterView(writing: $selected)
+        }
+        // MARK: - Info View Sheet
+        .sheet(isPresented: $showInfoView) {
+            InfoView()
+        }
+        // MARK: - Open a new counter if it's iPhone
+        .onLoad {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                newCounter()
+            }
         }
     }
     
