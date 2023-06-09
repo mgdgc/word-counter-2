@@ -14,6 +14,8 @@ struct CounterInfoView: View {
     @Binding var text: String
     @State var showBytes: Bool = false
     
+    var onStartWritingClick: (() -> Void)?
+    
     private let spaceOptions: [SpaceType] = [.includeBoth, .includeSpace, .includeEnter, .neither]
     
     var body: some View {
@@ -32,6 +34,11 @@ struct CounterInfoView: View {
             HStack {
                 if count.text.isEmpty {
                     Text("counter_empty")
+                        .onTapGesture {
+                            if let onStartWritingClick = onStartWritingClick {
+                                onStartWritingClick()
+                            }
+                        }
                 } else {
                     Text(showBytes ? "\("counter_bytes".localized): \(count.bytes)" : "\("counter_letters".localized): \(count.letters), \("counter_words".localized): \(count.words)")
                         .onTapGesture {
@@ -80,17 +87,24 @@ struct CounterView: View {
     @State var text: String = ""
     @State var count: Count = Count(text: "", spaceType: .includeBoth)
     
+    @FocusState private var focus: Focus?
+    
+    fileprivate enum Focus {
+        case textEditor
+    }
+    
     var body: some View {
         ZStack {
             
             // MARK: - Text Field
             TextEditor(text: $text)
                 .font(.body)
-                .padding([.top], 56)
+                .padding([.top], 72)
                 .padding([.trailing, .leading], 20)
                 .onChange(of: text) { newValue in
                     count = Count(text: newValue, spaceType: .includeBoth)
                 }
+                .focused($focus, equals: Focus.textEditor)
             
             // MARK: - Placeholder
             if text.isEmpty {
@@ -103,13 +117,15 @@ struct CounterView: View {
                     }
                     Spacer()
                 }
-                .padding([.top], 64)
+                .padding([.top], 80)
                 .padding([.trailing, .leading], 26)
             }
             
             // MARK: - Info View
             VStack {
-                CounterInfoView(count: $count, text: $text)
+                CounterInfoView(count: $count, text: $text) {
+                    focus = .textEditor
+                }
                 Spacer()
             }
             .padding([.top], 8)
