@@ -6,11 +6,12 @@
   
 */
 
-"app_name" = "WordCounter";
+"app_name" = "WritingCounter";
 
 // MARK: - General Texts
 "confirm" = "Confirm";
 "delete" = "Delete";
+"copy" = "Copy";
 
 // MARK: - ListView
 "list_title" = "Writings";
@@ -18,6 +19,7 @@
 "list_saved" = "Saved";
 "list_empty_writing" = "Empty";
 "list_empty_list" = "Create a new counter to start counting.";
+"unavailable" = "Not Available";
 
 // MARK: - CounterView
 "counter_save" = "Save";

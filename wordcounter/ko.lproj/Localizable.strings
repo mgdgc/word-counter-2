@@ -10,7 +10,8 @@
 
 // MARK: - General Texts
 "confirm" = "확인";
-"delete" = "제거";
+"delete" = "삭제";
+"copy" = "복사";
 
 // MARK: - ListView
 "list_title" = "글 목록";
@@ -18,6 +19,7 @@
 "list_saved" = "저장된 항목";
 "list_empty_writing" = "빈 카운터";
 "list_empty_list" = "새 카운터를 생성하여 시작하세요";
+"unavailable" = "사용할 수 없음";
 
 // MARK: - CounterView
 "counter_save" = "저장";

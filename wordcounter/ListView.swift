@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import CoreData
+import UniformTypeIdentifiers
 
 struct ListCell: View {
     let writing: FetchedResults<Writing>.Element
@@ -65,12 +66,51 @@ struct ListView: View {
                 List(selection: $selected) {
                     Section {
                         ForEach(writings) { writing in
+                            // NavigationLink
                             NavigationLink(value: writing) {
+                                // Cell
                                 ListCell(writing: writing)
                                     .onTapGesture {
                                         self.selected = writing
-                                    }
-                            }
+                                    } // ListCell.onTapGesture
+                                    .contextMenu {
+                                        Section {
+                                            // Copy Button
+                                            Button(role: .none) {
+                                                if let text = writing.text {
+                                                    UIPasteboard.general.setValue(text, forPasteboardType: UTType.plainText.identifier)
+                                                }
+                                            } label : {
+                                                Label("copy", systemImage: "doc.on.doc")
+                                            }
+                                        }
+                                        
+                                        Section {
+                                            // Delete Button
+                                            Button(role: .destructive) {
+                                                managedObjectContext.delete(writing)
+                                                saveContext()
+                                                selected = nil
+                                            } label : {
+                                                Label("delete", systemImage: "trash")
+                                            }
+                                        }
+                                        
+                                    } preview: {
+                                        VStack(spacing: 16) {
+                                            if let text = writing.text {
+                                                CounterInfoView(count: .constant(Count(text: text, spaceType: .includeBoth)), text: .constant(text))
+                                                ScrollView {
+                                                    Text(text)
+                                                }
+                                            } else {
+                                                Text("unavailable")
+                                            }
+                                        }
+                                        .padding()
+                                    } // ListCell.contextMenu
+
+                            }// NavigationLink
                             .swipeActions {
                                 Button("delete", role: .destructive) {
                                     managedObjectContext.delete(writing)
