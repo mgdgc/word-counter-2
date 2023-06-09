@@ -11,7 +11,9 @@
 // MARK: - General Texts
 "confirm" = "확인";
 "delete" = "삭제";
+"cancel" = "취소";
 "copy" = "복사";
+"paste" = "붙여넣기";
 
 // MARK: - ListView
 "list_title" = "글 목록";
@@ -28,6 +30,10 @@
 "counter_letters" = "글자 수";
 "counter_words" = "단어 수";
 "counter_bytes" = "바이트 수";
+"paste_warning_title" = "붙여넣기 확인";
+"paste_warning_message" = "지금 작성중인 내용을 지우고 붙여넣을까요?";
+"paste_replace" = "지우고 붙여넣기";
+"paste_append" = "뒤에 붙이기";
 
 // MARK: - SpaceType
 "includeBoth" = "모두 포함";

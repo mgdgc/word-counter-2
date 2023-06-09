@@ -11,7 +11,9 @@
 // MARK: - General Texts
 "confirm" = "Confirm";
 "delete" = "Delete";
+"cancel" = "Cancel";
 "copy" = "Copy";
+"paste" = "Paste";
 
 // MARK: - ListView
 "list_title" = "Writings";
@@ -28,6 +30,10 @@
 "counter_letters" = "Letters";
 "counter_words" = "Words";
 "counter_bytes" = "Bytes";
+"paste_warning_title" = "Paste";
+"paste_warning_message" = "Would you like to replace current writing?";
+"paste_delete" = "Replace current writing";
+"paste_append" = "Append";
 
 // MARK: - SpaceType
 "includeBoth" = "Include Both";

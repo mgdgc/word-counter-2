@@ -8,11 +8,15 @@
 import SwiftUI
 import UIKit
 import CoreData
+import UniformTypeIdentifiers
 
 struct CounterInfoView: View {
     @Binding var count: Count
     @Binding var text: String
     @State var showBytes: Bool = false
+    
+    @State private var textToPaste: String?
+    @State private var showPasteAlert: Bool = false
     
     var onStartWritingClick: (() -> Void)?
     
@@ -20,14 +24,58 @@ struct CounterInfoView: View {
     
     var body: some View {
         HStack {
-            // MARK: 붙여넣기
-            Button {
-                let pb: UIPasteboard = UIPasteboard.general
-                if let string = pb.string {
-                    text = string
+            // MARK: 복사 & 붙여넣기
+            Menu {
+                // 복사
+                Button(role: .none) {
+                    UIPasteboard.general.setValue(text, forPasteboardType: UTType.plainText.identifier)
+                    
+                } label: {
+                    Label("copy", systemImage: "doc.on.doc")
                 }
+                
+                // 붙여넣기
+                Button(role: .none) {
+                    let pb: UIPasteboard = UIPasteboard.general
+                    guard let string = pb.string else {
+                        return
+                    }
+                    
+                    if text.isEmpty {
+                        // 빈 텍스트이면 붙여넣기
+                        text = string
+                    } else {
+                        // 빈 텍스트가 아니면 경고 메시지
+                        textToPaste = string
+                        showPasteAlert = true
+                    }
+                    
+                } label: {
+                    Label("paste", systemImage: "doc.on.clipboard")
+                } // Button
+
+
             } label: {
-                Image(systemName: "doc.on.clipboard")
+                Image(systemName: "clipboard")
+            }
+            .confirmationDialog("paste_warning_title", isPresented: $showPasteAlert, presenting: textToPaste) { pasteObject in
+                // Replace
+                Button("paste_replace", role: .destructive) {
+                    self.text = pasteObject
+                }
+                
+                // Append
+                Button("paste_append", role: .none) {
+                    text.append(contentsOf: pasteObject)
+                }
+                
+                // Cancel
+                Button("cancel", role: .cancel) {
+                    textToPaste = nil
+                    showPasteAlert = false
+                }
+            } message: { _ in
+                Text("paste_warning_message")
             }
             
             Spacer()
