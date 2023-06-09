@@ -131,6 +131,7 @@ struct CounterView: View {
     @Environment(\.dismiss) var dismiss
     
     @Binding var writing: FetchedResults<Writing>.Element?
+    @Binding var columnVisibility: NavigationSplitViewVisibility
     
     @State var text: String = ""
     @State var count: Count = Count(text: "", spaceType: .includeBoth)
@@ -196,6 +197,8 @@ struct CounterView: View {
                     } else {
                         save(text: text)
                     }
+                    
+                    columnVisibility = .all
                 } label: {
                     Text("counter_save")
                 }

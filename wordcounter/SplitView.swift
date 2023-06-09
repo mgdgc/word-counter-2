@@ -14,9 +14,9 @@ struct SplitView: View {
     
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
-            ListView(selected: $writing)
+            ListView(selected: $writing, columnVisibility: $columnVisibility)
         } detail: {
-            CounterView(writing: $writing)
+            CounterView(writing: $writing, columnVisibility: $columnVisibility)
         }
     }
 }

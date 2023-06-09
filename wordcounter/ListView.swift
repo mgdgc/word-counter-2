@@ -15,10 +15,23 @@ struct ListCell: View {
     
     var body: some View {
         VStack {
+            if let timestamp = writing.timestamp {
+                HStack {
+                    Text(timestamp.fullString)
+                        .font(.subheadline)
+                        .foregroundColor(Color("ColorTextTertiary"))
+                    Spacer()
+                }
+            }
             if let text = writing.text {
-                Text(text)
-                    .foregroundColor(Color("ColorTextPrimary"))
-                    .lineLimit(2)
+                HStack {
+                    Text(text)
+                        .font(.body)
+                        .foregroundColor(Color("ColorTextPrimary"))
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
+                }
             } else {
                 Text("list_empty_writing")
                     .font(.caption.italic())
@@ -47,6 +60,9 @@ struct ListView: View {
     // Selected Writing
     @Binding var selected: FetchedResults<Writing>.Element?
     
+    // Navigation Column Visibility
+    @Binding var columnVisibility: NavigationSplitViewVisibility
+    
     // New Counter
     @State private var activeNewCounter: Bool = false
     
@@ -72,6 +88,7 @@ struct ListView: View {
                                 ListCell(writing: writing)
                                     .onTapGesture {
                                         self.selected = writing
+                                        self.columnVisibility = .detailOnly
                                     } // ListCell.onTapGesture
                                     .contextMenu {
                                         Section {
@@ -163,7 +180,7 @@ struct ListView: View {
         }
         // MARK: - New Counter Navigation
         .navigationDestination(isPresented: $activeNewCounter) {
-            CounterView(writing: $selected)
+            CounterView(writing: $selected, columnVisibility: $columnVisibility)
         }
         // MARK: - Info View Sheet
         .sheet(isPresented: $showInfoView) {
