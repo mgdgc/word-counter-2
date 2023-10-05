@@ -152,8 +152,8 @@ struct ListView: View {
                         .resizable()
                         .renderingMode(.template)
                         .foregroundColor(Color("ColorTextTertiary"))
-                        .aspectRatio(1.56, contentMode: .fit)
-                        .frame(maxWidth: 256)
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(maxWidth: 128)
                     
                     Text("list_empty_list")
                         .font(SwiftUI.Font.headline)
