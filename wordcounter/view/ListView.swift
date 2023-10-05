@@ -11,7 +11,7 @@ import CoreData
 import UniformTypeIdentifiers
 
 struct ListCell: View {
-    let writing: FetchedResults<Writing>.Element
+    let writing: Writing
     
     var body: some View {
         VStack {
@@ -58,7 +58,7 @@ struct ListView: View {
     @State private var renderId: UUID = UUID()
     
     // Selected Writing
-    @Binding var selected: FetchedResults<Writing>.Element?
+    @Binding var selected: Writing?
     
     // Navigation Column Visibility
     @Binding var columnVisibility: NavigationSplitViewVisibility
