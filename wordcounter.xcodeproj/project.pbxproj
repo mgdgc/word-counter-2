@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		794703B02ACF607D003FBFBA /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703AF2ACF607D003FBFBA /* UserDefaultsKey.swift */; };
+		794703B42ACF6104003FBFBA /* BackupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703B32ACF6104003FBFBA /* BackupView.swift */; };
+		794703B62ACF610A003FBFBA /* RestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703B52ACF610A003FBFBA /* RestoreView.swift */; };
+		794703B82ACF6138003FBFBA /* ICloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703B72ACF6138003FBFBA /* ICloudManager.swift */; };
 		796F422529C5FD4600FBFDF5 /* wordcounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 796F422329C5FD4600FBFDF5 /* wordcounter.xcdatamodeld */; };
 		796F422729C5FD4800FBFDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 796F422629C5FD4800FBFDF5 /* Assets.xcassets */; };
 		796F423A29C5FE6600FBFDF5 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F423929C5FE6600FBFDF5 /* AppMain.swift */; };
@@ -25,10 +29,14 @@
 		798B085029F495CD008BD853 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B084F29F495CD008BD853 /* ViewDidLoadModifier.swift */; };
 		7995A23729C6C76C008370B5 /* Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995A23629C6C76C008370B5 /* Count.swift */; };
 		7995A23D29C6DE80008370B5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995A23C29C6DE80008370B5 /* StringExtension.swift */; };
-		7995A24229C75180008370B5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995A24129C75180008370B5 /* InfoView.swift */; };
+		7995A24229C75180008370B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995A24129C75180008370B5 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		794703AF2ACF607D003FBFBA /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		794703B32ACF6104003FBFBA /* BackupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupView.swift; sourceTree = "<group>"; };
+		794703B52ACF610A003FBFBA /* RestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreView.swift; sourceTree = "<group>"; };
+		794703B72ACF6138003FBFBA /* ICloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudManager.swift; sourceTree = "<group>"; };
 		796F421729C5FD4600FBFDF5 /* wordcounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordcounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796F422429C5FD4600FBFDF5 /* wordcounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wordcounter.xcdatamodel; sourceTree = "<group>"; };
 		796F422629C5FD4800FBFDF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +60,7 @@
 		798B084F29F495CD008BD853 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		7995A23629C6C76C008370B5 /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
 		7995A23C29C6DE80008370B5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		7995A24129C75180008370B5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		7995A24129C75180008370B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		794703B12ACF60EB003FBFBA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				796F428329C6262200FBFDF5 /* SplitView.swift */,
+				796F424429C6011300FBFDF5 /* ListView.swift */,
+				796F426529C61E1700FBFDF5 /* CounterView.swift */,
+				794703B22ACF60F4003FBFBA /* settings */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		794703B22ACF60F4003FBFBA /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				7995A24129C75180008370B5 /* SettingsView.swift */,
+				794703B32ACF6104003FBFBA /* BackupView.swift */,
+				794703B52ACF610A003FBFBA /* RestoreView.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
 		796F420E29C5FD4600FBFDF5 = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +127,7 @@
 				796F426029C611BB00FBFDF5 /* extensions */,
 				796F425929C60D8600FBFDF5 /* data */,
 				7995A23E29C750E4008370B5 /* model */,
-				796F428329C6262200FBFDF5 /* SplitView.swift */,
-				796F424429C6011300FBFDF5 /* ListView.swift */,
-				796F426529C61E1700FBFDF5 /* CounterView.swift */,
-				7995A24129C75180008370B5 /* InfoView.swift */,
+				794703B12ACF60EB003FBFBA /* view */,
 			);
 			path = wordcounter;
 			sourceTree = "<group>";
@@ -126,6 +152,7 @@
 		796F426029C611BB00FBFDF5 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				794703AF2ACF607D003FBFBA /* UserDefaultsKey.swift */,
 				798B084D29F495A7008BD853 /* ViewExtension.swift */,
 				796F425E29C610C800FBFDF5 /* DateExtension.swift */,
 				7995A23C29C6DE80008370B5 /* StringExtension.swift */,
@@ -138,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				796F425C29C6103100FBFDF5 /* Log.swift */,
+				794703B72ACF6138003FBFBA /* ICloudManager.swift */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -227,18 +255,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794703B02ACF607D003FBFBA /* UserDefaultsKey.swift in Sources */,
 				798B085029F495CD008BD853 /* ViewDidLoadModifier.swift in Sources */,
 				796F425F29C610C800FBFDF5 /* DateExtension.swift in Sources */,
 				796F422529C5FD4600FBFDF5 /* wordcounter.xcdatamodeld in Sources */,
 				796F425D29C6103100FBFDF5 /* Log.swift in Sources */,
 				796F424529C6011300FBFDF5 /* ListView.swift in Sources */,
+				794703B82ACF6138003FBFBA /* ICloudManager.swift in Sources */,
 				796F425B29C60E6A00FBFDF5 /* PersistenceController.swift in Sources */,
 				796F428429C6262200FBFDF5 /* SplitView.swift in Sources */,
-				7995A24229C75180008370B5 /* InfoView.swift in Sources */,
+				7995A24229C75180008370B5 /* SettingsView.swift in Sources */,
 				796F425829C60D7A00FBFDF5 /* Writing+CoreDataProperties.swift in Sources */,
 				796F425729C60D7A00FBFDF5 /* Writing+CoreDataClass.swift in Sources */,
 				7995A23D29C6DE80008370B5 /* StringExtension.swift in Sources */,
 				798B084E29F495A7008BD853 /* ViewExtension.swift in Sources */,
+				794703B62ACF610A003FBFBA /* RestoreView.swift in Sources */,
+				794703B42ACF6104003FBFBA /* BackupView.swift in Sources */,
 				796F423A29C5FE6600FBFDF5 /* AppMain.swift in Sources */,
 				7995A23729C6C76C008370B5 /* Count.swift in Sources */,
 				796F426629C61E1700FBFDF5 /* CounterView.swift in Sources */,

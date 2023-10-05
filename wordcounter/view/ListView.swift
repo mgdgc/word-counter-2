@@ -170,11 +170,19 @@ struct ListView: View {
         // MARK: - Toolbar
         .toolbar {
             // MARK: New Counter
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .primaryAction) {
                 Button {
                     newCounter()
                 } label: {
-                    Image(systemName: "square.and.pencil")
+                    Label("list_new", systemImage: "square.and.pencil")
+                }
+            }
+            
+            ToolbarItem(placement: .secondaryAction) {
+                Button {
+                    showSettingView = true
+                } label: {
+                    Label("list_settings", systemImage: "gearshape")
                 }
             }
         }
@@ -182,9 +190,11 @@ struct ListView: View {
         .navigationDestination(isPresented: $activeNewCounter) {
             CounterView(writing: $selected, columnVisibility: $columnVisibility)
         }
-        // MARK: - Info View Sheet
-        .sheet(isPresented: $showInfoView) {
-            InfoView()
+        // MARK: - Settings View Sheet
+        .sheet(isPresented: $showSettingView) {
+            NavigationStack {
+                SettingsView()
+            }
         }
         // MARK: - Open a new counter if it's iPhone
         .onLoad {

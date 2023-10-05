@@ -14,10 +14,12 @@
 "cancel" = "Cancel";
 "copy" = "Copy";
 "paste" = "Paste";
+"dismiss" = "Dismiss";
 
 // MARK: - ListView
 "list_title" = "Writings";
 "list_new" = "New Counter";
+"list_settings" = "Settings";
 "list_saved" = "Saved";
 "list_empty_writing" = "Empty";
 "list_empty_list" = "Create a new counter to start counting.";
@@ -45,9 +47,12 @@
 "setting_title" = "Settings";
 "setting_new_counter_on_start" = "Open a new counter on start up";
 
-// MARK: - InfoView
 "info_section_app" = "Application Info";
 "info_version" = "Application Version";
 "info_build" = "Build Number";
-"info_section_developer" = "Developer";
-"info_developer" = "Developer";
+
+"settings_section_data" = "Data";
+"settings_auto_sync" = "Auto Sync Via iCloud";
+"settings_backup" = "Backup Data";
+"settings_restore" = "Restore Data";
+"settings_section_data_footer" = "The lastest data from iCloud will be automatically fetched if 'Auto Sync Via iCloud' is enabled when launching the app.";

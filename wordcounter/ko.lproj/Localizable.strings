@@ -14,10 +14,12 @@
 "cancel" = "취소";
 "copy" = "복사";
 "paste" = "붙여넣기";
+"dismiss" = "닫기";
 
 // MARK: - ListView
 "list_title" = "글 목록";
 "list_new" = "새 카운터";
+"list_settings" = "설정";
 "list_saved" = "저장된 항목";
 "list_empty_writing" = "빈 카운터";
 "list_empty_list" = "새 카운터를 생성하여 시작하세요";
@@ -44,3 +46,13 @@
 // MARK: - SettingView
 "setting_title" = "설정";
 "setting_new_counter_on_start" = "시작할 때 새 카운터 열기";
+
+"info_section_app" = "정보";
+"info_version" = "버전";
+"info_build" = "빌드";
+
+"settings_section_data" = "데이터";
+"settings_auto_sync" = "iCloud 자동 동기화";
+"settings_backup" = "데이터 백업";
+"settings_restore" = "데이터 복원";
+"settings_section_data_footer" = "'iCloud 자동 동기화' 옵션을 활성화하면 앱이 실행될 때 iCloud에 저장된 가장 최근의 데이터를 가져옵니다.";
