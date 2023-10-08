@@ -15,6 +15,13 @@
 "copy" = "Copy";
 "paste" = "Paste";
 "dismiss" = "Dismiss";
+"biometric" = "Biometric";
+
+// MARK: - SplitView
+"split_locked" = "WritingCounter Is Locked";
+"split_locked_message" = "Enter the device passcode to unlock.";
+"split_locked_button" = "Enter Passcode";
+"split_locked_biometric_reason" = "Unlock the WritingCounter";
 
 // MARK: - ListView
 "list_title" = "Writings";
@@ -51,8 +58,7 @@
 "info_version" = "Application Version";
 "info_build" = "Build Number";
 
-"settings_section_data" = "Data";
-"settings_auto_sync" = "Auto Sync Via iCloud";
-"settings_backup" = "Backup Data";
-"settings_restore" = "Restore Data";
-"settings_section_data_footer" = "The lastest data from iCloud will be automatically fetched if 'Auto Sync Via iCloud' is enabled when launching the app.";
+"settings_section_security" = "Security";
+"settings_security_lock" = "Lock WritingCounter";
+"settings_section_security_footer" = "WritingCounter will require this device's passcode when opening the app.";
+"settings_section_security_footer_error" = "To enable 'Lock WritingCounter', the device's passcode needed to be set. Please notice that the app will not require the passcode if it is removed.";

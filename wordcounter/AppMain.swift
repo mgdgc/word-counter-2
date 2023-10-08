@@ -13,6 +13,12 @@ struct AppMain: App {
     
     let persistenceController = PersistenceController.shared
     
+    init() {
+        UserDefaults.standard.register(defaults: [
+            UserDefaultsKey.Settings.lock : false
+        ])
+    }
+    
     var body: some Scene {
         WindowGroup {
             SplitView()

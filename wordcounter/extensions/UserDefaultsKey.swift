@@ -14,5 +14,5 @@ class UserDefaultsKey {
 }
 
 extension UserDefaultsKey.Settings {
-    static let autoSync = "autoSync"
+    static let lock = "lock"
 }

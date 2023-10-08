@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import LocalAuthentication
 
 struct InfoCell: View {
     
@@ -26,12 +27,18 @@ struct InfoCell: View {
 
 struct SettingsView: View {
     
-    @State var autoSync: Bool = true
+    @State var lock: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lock)
     @State var showBackup: Bool = false
     @State var showRestore: Bool = false
     
     @State var version: String = "v2.0"
     @State var build: String = "2023031800"
+    
+    private var lockable: Bool {
+        let context = LAContext()
+        var error: NSError?
+        return context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
+    }
     
     @Environment(\.dismiss) var dismiss
     
@@ -39,15 +46,17 @@ struct SettingsView: View {
         ZStack {
             List {
                 Section {
-                    Toggle("settings_auto_sync", isOn: $autoSync)
-                        .onChange(of: autoSync) { newValue in
-                            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.Settings.autoSync)
+                    Toggle("settings_security_lock", isOn: $lock)
+                        .onChange(of: lock) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.Settings.lock)
+                            UserDefaults.standard.synchronize()
                         }
+                        .disabled(!lockable)
                 } header: {
-                    Text("settings_section_data")
+                    Text("settings_section_security")
                     
                 } footer : {
-                    Text("settings_section_data_footer")
+                    lockable ? Text("settings_section_security_footer") : Text("settings_section_security_footer_error")
                 }
                 
                 Section("info_section_app") {

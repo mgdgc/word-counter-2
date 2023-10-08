@@ -7,3 +7,4 @@
 */
 
 CFBundleName = "워드 카운터";
+NSFaceIDUsageDescription = "앱 잠금 해제";

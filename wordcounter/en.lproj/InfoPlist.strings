@@ -7,3 +7,4 @@
 */
 
 CFBundleName = "WordCounter";
+NSFaceIDUsageDescription = "Unlock the app";
