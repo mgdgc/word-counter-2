@@ -13,16 +13,17 @@ class PersistenceController {
     
     static let shared = PersistenceController()
     
-    let container: NSPersistentContainer
+    let container: NSPersistentCloudKitContainer
     
     // MARK: - Init
     private init() {
-        self.container = NSPersistentContainer(name: "wordcounter")
+        self.container = NSPersistentCloudKitContainer(name: "wordcounter")
         self.container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        self.container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
     // MARK: Save Context
