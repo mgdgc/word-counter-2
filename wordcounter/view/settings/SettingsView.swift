@@ -43,12 +43,6 @@ struct SettingsView: View {
                         .onChange(of: autoSync) { newValue in
                             UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.Settings.autoSync)
                         }
-                    NavigationLink("settings_backup") {
-                        BackupView()
-                    }
-                    NavigationLink("settings_restore") {
-                        RestoreView()
-                    }
                 } header: {
                     Text("settings_section_data")
                     

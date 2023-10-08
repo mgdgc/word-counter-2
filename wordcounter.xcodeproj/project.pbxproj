@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		794703B02ACF607D003FBFBA /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703AF2ACF607D003FBFBA /* UserDefaultsKey.swift */; };
-		794703B42ACF6104003FBFBA /* BackupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703B32ACF6104003FBFBA /* BackupView.swift */; };
-		794703B62ACF610A003FBFBA /* RestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794703B52ACF610A003FBFBA /* RestoreView.swift */; };
 		796666812AD2764700F0B9D0 /* CloudPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796666802AD2764700F0B9D0 /* CloudPersistenceController.swift */; };
 		796F422529C5FD4600FBFDF5 /* wordcounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 796F422329C5FD4600FBFDF5 /* wordcounter.xcdatamodeld */; };
 		796F422729C5FD4800FBFDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 796F422629C5FD4800FBFDF5 /* Assets.xcassets */; };
@@ -34,8 +32,6 @@
 
 /* Begin PBXFileReference section */
 		794703AF2ACF607D003FBFBA /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
-		794703B32ACF6104003FBFBA /* BackupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupView.swift; sourceTree = "<group>"; };
-		794703B52ACF610A003FBFBA /* RestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreView.swift; sourceTree = "<group>"; };
 		796666802AD2764700F0B9D0 /* CloudPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPersistenceController.swift; sourceTree = "<group>"; };
 		796F421729C5FD4600FBFDF5 /* wordcounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordcounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796F422429C5FD4600FBFDF5 /* wordcounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wordcounter.xcdatamodel; sourceTree = "<group>"; };
@@ -89,8 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				7995A24129C75180008370B5 /* SettingsView.swift */,
-				794703B32ACF6104003FBFBA /* BackupView.swift */,
-				794703B52ACF610A003FBFBA /* RestoreView.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -269,8 +263,6 @@
 				796F425729C60D7A00FBFDF5 /* Writing+CoreDataClass.swift in Sources */,
 				7995A23D29C6DE80008370B5 /* StringExtension.swift in Sources */,
 				798B084E29F495A7008BD853 /* ViewExtension.swift in Sources */,
-				794703B62ACF610A003FBFBA /* RestoreView.swift in Sources */,
-				794703B42ACF6104003FBFBA /* BackupView.swift in Sources */,
 				796F423A29C5FE6600FBFDF5 /* AppMain.swift in Sources */,
 				7995A23729C6C76C008370B5 /* Count.swift in Sources */,
 				796F426629C61E1700FBFDF5 /* CounterView.swift in Sources */,
