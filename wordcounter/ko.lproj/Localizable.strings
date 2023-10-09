@@ -54,6 +54,12 @@
 "setting_title" = "설정";
 "setting_new_counter_on_start" = "시작할 때 새 카운터 열기";
 
+"settings_section_icloud" = "iCloud";
+"settings_icloud_available" = "iCloud 활성화됨";
+"settings_icloud_unavailable" = "iCloud 비활성화됨";
+"settings_section_icloud_available" = "글이 iCloud를 통해 동기화되고 있습니다. 동기화를 끄려면 설정 앱의 iCloud 설정에서 WordCounter를 비활성화하십시오.";
+"settings_section_icloud_unavailable" = "iCloud를 사용할 수 없습니다. 설정 앱에서 Apple ID로 로그인하고, iCloud 설정을 켜십시오.";
+
 "info_section_app" = "정보";
 "info_version" = "버전";
 "info_build" = "빌드";

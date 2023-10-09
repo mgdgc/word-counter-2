@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import LocalAuthentication
+import CloudKit
 
 struct InfoCell: View {
     
@@ -34,6 +35,8 @@ struct SettingsView: View {
     @State var version: String = "v2.0"
     @State var build: String = "2023031800"
     
+    @State var iCloudAvailable: Bool = false
+    
     private var lockable: Bool {
         let context = LAContext()
         var error: NSError?
@@ -45,6 +48,19 @@ struct SettingsView: View {
     var body: some View {
         ZStack {
             List {
+                Section {
+                    Label {
+                        Text(iCloudAvailable ? "settings_icloud_available" : "settings_icloud_unavailable")
+                    } icon: {
+                        Image(systemName: iCloudAvailable ? "checkmark.circle.fill" : "xmark.circle.fill")
+                    }
+
+                } header: {
+                    Text("settings_section_icloud")
+                } footer: {
+                    Text(iCloudAvailable ? "settings_section_icloud_available" : "settings_section_icloud_unavailable")
+                }
+                
                 Section {
                     Toggle("settings_security_lock", isOn: $lock)
                         .onChange(of: lock) { newValue in
@@ -75,6 +91,15 @@ struct SettingsView: View {
             // 빌드 버전
             if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
                 self.build = build
+            }
+            
+            // iCloud
+            CKContainer.default().accountStatus { status, error in
+                if let error = error {
+                    print(error)
+                }
+                
+                iCloudAvailable = status == .available
             }
         }
         .navigationTitle("setting_title")
