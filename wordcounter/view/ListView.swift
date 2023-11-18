@@ -89,6 +89,7 @@ struct ListView: View {
                                     .onTapGesture {
                                         self.selected = writing
                                         self.columnVisibility = .detailOnly
+                                        self.activeNewCounter = true
                                     } // ListCell.onTapGesture
                                     .contextMenu {
                                         Section {
@@ -139,6 +140,9 @@ struct ListView: View {
                     } header: {
                         Text("list_saved")
                     }
+                }
+                .onChange(of: selected) { newValue in
+                    self.activeNewCounter = true
                 }
                 .id(renderId)
                 .onReceive(publisher) { output in
@@ -198,9 +202,7 @@ struct ListView: View {
         }
         // MARK: - Open a new counter if it's iPhone
         .onLoad {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                newCounter()
-            }
+            newCounter()
         }
     }
     
@@ -213,7 +215,12 @@ struct ListView: View {
     }
     
     private func newCounter() {
-        selected = nil
+        let writing = Writing(context: managedObjectContext)
+        writing.id = UUID().uuidString
+        writing.text = ""
+        writing.timestamp = Date()
+        
+        selected = writing
         activeNewCounter = true
     }
 }

@@ -12,7 +12,7 @@ import SwiftKeychainWrapper
 struct SplitView: View {
     
     @State var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
-    @State var writing: FetchedResults<Writing>.Element?
+    @State var writing: Writing?
     @State private var locked: Bool = false
     @State private var lockMessage: String = "split_locked_message".localized
     

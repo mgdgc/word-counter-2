@@ -33,6 +33,7 @@
 		79E13EC32B05F5AC0067128A /* SwiftKeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E13EC22B05F5AC0067128A /* SwiftKeychainWrapper.swift */; };
 		79E13EC52B073A2C0067128A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E13EC42B073A2C0067128A /* ColorExtension.swift */; };
 		79E13EC72B0754F30067128A /* LicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E13EC62B0754F30067128A /* LicensesView.swift */; };
+		79E13ECB2B084FB50067128A /* CounterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E13ECA2B084FB50067128A /* CounterInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		79E13EC22B05F5AC0067128A /* SwiftKeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftKeychainWrapper.swift; sourceTree = "<group>"; };
 		79E13EC42B073A2C0067128A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		79E13EC62B0754F30067128A /* LicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesView.swift; sourceTree = "<group>"; };
+		79E13ECA2B084FB50067128A /* CounterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +85,12 @@
 		794703B12ACF60EB003FBFBA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				79A9F9612B05E4690071D758 /* PasscodeView.swift */,
 				796F428329C6262200FBFDF5 /* SplitView.swift */,
 				796F424429C6011300FBFDF5 /* ListView.swift */,
 				796F426529C61E1700FBFDF5 /* CounterView.swift */,
+				79E13ECA2B084FB50067128A /* CounterInfoView.swift */,
 				794703B22ACF60F4003FBFBA /* settings */,
-				79A9F9612B05E4690071D758 /* PasscodeView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				798B085029F495CD008BD853 /* ViewDidLoadModifier.swift in Sources */,
 				796F425F29C610C800FBFDF5 /* DateExtension.swift in Sources */,
 				79E13EC32B05F5AC0067128A /* SwiftKeychainWrapper.swift in Sources */,
+				79E13ECB2B084FB50067128A /* CounterInfoView.swift in Sources */,
 				796F422529C5FD4600FBFDF5 /* wordcounter.xcdatamodeld in Sources */,
 				796F425D29C6103100FBFDF5 /* Log.swift in Sources */,
 				796F424529C6011300FBFDF5 /* ListView.swift in Sources */,
