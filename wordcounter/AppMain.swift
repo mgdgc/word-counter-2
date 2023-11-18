@@ -15,7 +15,9 @@ struct AppMain: App {
     
     init() {
         UserDefaults.standard.register(defaults: [
-            UserDefaultsKey.Settings.lock : false
+            UserDefaultsKey.Settings.lock : false,
+            UserDefaultsKey.Settings.lockBiometric : false,
+            UserDefaultsKey.Settings.lockImmediately : false
         ])
     }
     

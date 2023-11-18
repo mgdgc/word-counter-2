@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LocalAuthentication
+import SwiftKeychainWrapper
 
 struct SplitView: View {
     
@@ -15,35 +16,36 @@ struct SplitView: View {
     @State private var locked: Bool = false
     @State private var lockMessage: String = "split_locked_message".localized
     
+    @Environment(\.scenePhase) var scenePhase
+    
     private let laContext = LAContext()
     
     var body: some View {
         ZStack {
             splitView
-                .overlay {
-                    if locked {
-                        ZStack {
-                            Rectangle()
-                                .fill(.regularMaterial)
-                                .ignoresSafeArea()
-                            
-                            VStack(spacing: 16) {
-                                Text("split_locked")
-                                    .font(.title.bold())
-                                Text(lockMessage)
-                                    .font(.body)
-                                Button(action: unlock) {
-                                    Label("split_locked_button", systemImage: "lock.open")
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .buttonBorderShape(.capsule)
-                                .padding(.top, 16)
-                            }
-                        }
-                    }
-                }
                 .onAppear {
                     locked = UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lock) && laContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+                }
+                .onChange(of: scenePhase) { newValue in
+                    switch newValue {
+                    case .background:
+                        if UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lockImmediately) {
+                            locked = UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lock) && laContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+                        }
+                    case .inactive: break
+                    case .active: break
+                    @unknown default: break
+                    }
+                }
+                .fullScreenCover(isPresented: $locked) {
+                    PasscodeView(initialMessage: "passcode_unlock".localized, dismissable: false, enableBiometric: true, authenticateOnLaunch: true) { typed, biometric in
+                        if biometric == true || typed == KeychainWrapper.standard[.passcode] {
+                            locked = false
+                            return .dismiss
+                        } else {
+                            return .retype("passcode_wrong".localized)
+                        }
+                    }
                 }
         }
     }

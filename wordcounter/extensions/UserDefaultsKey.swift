@@ -14,5 +14,7 @@ class UserDefaultsKey {
 }
 
 extension UserDefaultsKey.Settings {
-    static let lock = "lock"
+    static let lock = "lock_app"
+    static let lockBiometric = "lock_biometric"
+    static let lockImmediately = "lock_immediately"
 }
