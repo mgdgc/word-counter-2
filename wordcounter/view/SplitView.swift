@@ -26,15 +26,15 @@ struct SplitView: View {
                 .onAppear {
                     locked = UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lock) && laContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
                 }
-                .onChange(of: scenePhase) { newValue in
-                    switch newValue {
-                    case .background:
-                        if UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lockImmediately) {
-                            locked = UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lock) && laContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+                .addViewModifier { view in
+                    if #available(iOS 17, *) {
+                        view.onChange(of: scenePhase) { _, newValue in
+                            scenePhaseChangeAction(scenePhase: newValue)
                         }
-                    case .inactive: break
-                    case .active: break
-                    @unknown default: break
+                    } else {
+                        view.onChange(of: scenePhase) { newValue in
+                            scenePhaseChangeAction(scenePhase: newValue)
+                        }
                     }
                 }
                 .fullScreenCover(isPresented: $locked) {
@@ -55,6 +55,18 @@ struct SplitView: View {
             ListView(selected: $writing, columnVisibility: $columnVisibility)
         } detail: {
             CounterView(writing: $writing, columnVisibility: $columnVisibility)
+        }
+    }
+    
+    private func scenePhaseChangeAction(scenePhase: ScenePhase) {
+        switch scenePhase {
+        case .background:
+            if UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lockImmediately) {
+                locked = UserDefaults.standard.bool(forKey: UserDefaultsKey.Settings.lock) && laContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+            }
+        case .inactive: break
+        case .active: break
+        @unknown default: break
         }
     }
     

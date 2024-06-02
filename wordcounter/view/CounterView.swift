@@ -20,6 +20,8 @@ struct CounterView: View {
     @State var text: String = ""
     @State var count: Count = Count(text: "", spaceType: .includeBoth)
     
+    @State private var showSaveAlert: Bool = false
+    
     @FocusState private var focus: Focus?
     
     fileprivate enum Focus {
@@ -29,20 +31,109 @@ struct CounterView: View {
     var body: some View {
         ZStack {
             // MARK: - Text Field
-            TextEditor(text: $text)
-                .font(.body)
-                .padding([.top], 72)
-                .padding([.trailing, .leading], 20)
-                .onChange(of: text) { newValue in
-                    count = Count(text: newValue, spaceType: .includeBoth)
+#if os(iOS)
+            Group {
+                textField
+                placeholder
+                    .padding([.top], 8)
+                    .padding([.horizontal], 6)
+            }
+            .padding([.top], 72)
+            .padding([.horizontal], 20)
+#elseif os(visionOS)
+            Group {
+                textField
+                    .contentShape(.rect(cornerRadius: 8))
+                placeholder
+                    .padding([.top], 16)
+                    .padding([.horizontal], 24)
+            }
+            .padding([.horizontal], 20)
+#endif
+            
+            // MARK: - Info View
+#if os(iOS)
+            VStack {
+                CounterInfoView(count: $count, text: $text) {
+                    focus = .textEditor
+                }
+                Spacer()
+            }
+            .padding([.top], 8)
+            .padding([.leading, .trailing], 20)
+#endif
+        }
+#if os(visionOS)
+        .ornament(visibility: .visible, attachmentAnchor: .scene(.bottom), contentAlignment: .center) {
+            CounterInfoView(count: $count, text: $text) {
+                focus = .textEditor
+            }
+        }
+#endif
+        .onAppear {
+            // MARK: - 기존 데이터 fetch
+            self.text = writing?.text ?? ""
+        }
+        .id(writing?.id)
+        .navigationTitle("app_name")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if writing == nil {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        save(writing: writing)
+                        
+                        columnVisibility = .all
+                    } label: {
+                        Text("counter_save")
+                    }
+                    .keyboardShortcut("s")
+                }
+            } else {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("counter_save", systemImage: "checkmark.circle") {
+                        showSaveAlert = true
+                    }
+                    .alert("counter_save_alert_title", isPresented: $showSaveAlert) {
+                        Button("confirm", role: .cancel) {
+                            showSaveAlert = false
+                        }
+                    } message: {
+                        Text("counter_save_alert_message")
+                    }
                     
-                    if let writing = writing {
-                        edit(writing: writing, toUpdate: newValue)
+                }
+            }
+        }
+    }
+    
+    var textField: some View {
+        TextEditor(text: $text)
+            .font(.body)
+            .addViewModifier { view in
+                if #available(iOS 17, *) {
+                    view.onChange(of: text) { _, newValue in
+                        count = Count(text: newValue, spaceType: .includeBoth)
+                        
+                        if let writing = writing {
+                            edit(writing: writing, toUpdate: newValue)
+                        }
+                    }
+                } else {
+                    view.onChange(of: text) { newValue in
+                        count = Count(text: newValue, spaceType: .includeBoth)
+                        
+                        if let writing = writing {
+                            edit(writing: writing, toUpdate: newValue)
+                        }
                     }
                 }
-                .focused($focus, equals: Focus.textEditor)
-            
-            // MARK: - Placeholder
+            }
+            .focused($focus, equals: Focus.textEditor)
+    }
+    
+    var placeholder: some View {
+        ZStack {
             if text.isEmpty {
                 VStack(alignment: .leading) {
                     HStack {
@@ -53,56 +144,16 @@ struct CounterView: View {
                     }
                     Spacer()
                 }
-                .padding([.top], 80)
-                .padding([.trailing, .leading], 26)
-            }
-            
-            // MARK: - Info View
-            VStack {
-                CounterInfoView(count: $count, text: $text) {
-                    focus = .textEditor
-                }
-                Spacer()
-            }
-            .padding([.top], 8)
-            .padding([.leading, .trailing], 20)
-        }
-        .task {
-            // MARK: - 기존 데이터 fetch
-            if let writing = writing {
-                self.text = writing.text ?? ""
-            }
-        }
-        .onDisappear {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                if let writing = writing, writing.text?.isEmpty == true {
-                    delete(writing: writing)
-                }
-            }
-        }
-        .id(writing?.id)
-        .navigationTitle("app_name")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    save(writing: writing)
-                    
-                    columnVisibility = .all
-                } label: {
-                    Text("counter_save")
-                }
-                .keyboardShortcut("s")
             }
         }
     }
     
     private func saveContext() {
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error saving managed object context: \(error)")
+        }
     }
     
     private func save(writing: Writing?) {

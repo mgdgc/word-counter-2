@@ -43,6 +43,8 @@
 "paste_warning_message" = "Would you like to replace current writing?";
 "paste_delete" = "Replace current writing";
 "paste_append" = "Append";
+"counter_save_alert_title" = "Writing Saved";
+"counter_save_alert_message" = "Once a writing is saved, changes are automatically saved.";
 
 // MARK: - SpaceType
 "includeBoth" = "Include Both";

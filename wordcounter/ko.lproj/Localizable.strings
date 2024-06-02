@@ -43,6 +43,8 @@
 "paste_warning_message" = "지금 작성중인 내용을 지우고 붙여넣을까요?";
 "paste_replace" = "지우고 붙여넣기";
 "paste_append" = "뒤에 붙이기";
+"counter_save_alert_title" = "문서 저장됨";
+"counter_save_alert_message" = "한 번 저장된 문서는 변경사항이 자동으로 추적됩니다.";
 
 // MARK: - SpaceType
 "includeBoth" = "모두 포함";

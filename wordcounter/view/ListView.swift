@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 import CoreData
 import UniformTypeIdentifiers
+import Viewrito
 
 struct ListCell: View {
     let writing: Writing
@@ -74,9 +75,6 @@ struct ListView: View {
     
     var body: some View {
         ZStack {
-            Color("ColorBgSecondary")
-                .ignoresSafeArea(.all)
-            
             if writings.count > 0 {
                 // MARK: 저장된 항목
                 List(selection: $selected) {
@@ -141,8 +139,18 @@ struct ListView: View {
                         Text("list_saved")
                     }
                 }
-                .onChange(of: selected) { newValue in
-                    self.activeNewCounter = true
+                .addViewModifier { list in
+                    if #available(iOS 17, *) {
+                        list
+                            .onChange(of: selected) {
+                                self.activeNewCounter = true
+                            }
+                    } else {
+                        list
+                            .onChange(of: selected) { newValue in
+                                self.activeNewCounter = true
+                            }
+                    }
                 }
                 .id(renderId)
                 .onReceive(publisher) { output in
@@ -170,6 +178,9 @@ struct ListView: View {
             }
             
         }
+        #if os(iOS)
+        .background(Color(.colorBgSecondary).ignoresSafeArea())
+        #endif
         .navigationTitle("list_title")
         // MARK: - Toolbar
         .toolbar {
@@ -215,12 +226,7 @@ struct ListView: View {
     }
     
     private func newCounter() {
-        let writing = Writing(context: managedObjectContext)
-        writing.id = UUID().uuidString
-        writing.text = ""
-        writing.timestamp = Date()
-        
-        selected = writing
+        selected = nil
         activeNewCounter = true
     }
 }

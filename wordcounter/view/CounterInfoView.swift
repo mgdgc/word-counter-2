@@ -77,7 +77,7 @@ struct CounterInfoView: View {
                 Text("paste_warning_message")
             }
             
-            Spacer()
+            Spacer(minLength: 24)
             HStack {
                 if count.text.isEmpty {
                     Text("counter_empty")
@@ -93,7 +93,7 @@ struct CounterInfoView: View {
                         }
                 }
             }
-            Spacer()
+            Spacer(minLength: 24)
             
             // MARK: 공백 옵션
             Menu {
@@ -108,18 +108,27 @@ struct CounterInfoView: View {
                 Image(systemName: "text.word.spacing")
             }
         }
-        .foregroundColor(Color("ColorTextSecondary"))
         .padding(12)
         .padding([.leading, .trailing], 8)
         .frame(maxWidth: 480)
+        #if os(iOS)
+        .foregroundColor(Color(.colorTextSecondary))
         .background(
-            Rectangle()
-                .fill(Color("ColorBgPrimary"))
-                .cornerRadius(28)
+            Capsule()
+                .fill(Color(.colorBgPrimary))
                 .shadow(
                     color: Color.black.opacity(0.1),
                     radius: 8,
                     y: 4)
         )
+        #elseif os(visionOS)
+        .contentShape(.capsule)
+        .glassBackgroundEffect()
+        #endif
     }
+}
+
+@available(iOS 17, *)
+#Preview {
+    SplitView()
 }

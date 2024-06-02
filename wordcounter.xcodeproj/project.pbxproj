@@ -29,6 +29,9 @@
 		7995A23D29C6DE80008370B5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995A23C29C6DE80008370B5 /* StringExtension.swift */; };
 		7995A24229C75180008370B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995A24129C75180008370B5 /* SettingsView.swift */; };
 		79A9F9622B05E4690071D758 /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9F9612B05E4690071D758 /* PasscodeView.swift */; };
+		79DF7B2C2C02FF9D00ECF340 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79DF7B2B2C02FF9D00ECF340 /* Viewrito */; };
+		79DF7B2F2C03004D00ECF340 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79DF7B2E2C03004D00ECF340 /* Viewrito */; };
+		79DF7B522C03090F00ECF340 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79DF7B512C03090F00ECF340 /* Viewrito */; };
 		79E13EC12B05F3380067128A /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 79E13EC02B05F3380067128A /* SwiftKeychainWrapper */; };
 		79E13EC32B05F5AC0067128A /* SwiftKeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E13EC22B05F5AC0067128A /* SwiftKeychainWrapper.swift */; };
 		79E13EC52B073A2C0067128A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E13EC42B073A2C0067128A /* ColorExtension.swift */; };
@@ -76,6 +79,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E13EC12B05F3380067128A /* SwiftKeychainWrapper in Frameworks */,
+				79DF7B522C03090F00ECF340 /* Viewrito in Frameworks */,
+				79DF7B2F2C03004D00ECF340 /* Viewrito in Frameworks */,
+				79DF7B2C2C02FF9D00ECF340 /* Viewrito in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +213,9 @@
 			name = wordcounter;
 			packageProductDependencies = (
 				79E13EC02B05F3380067128A /* SwiftKeychainWrapper */,
+				79DF7B2B2C02FF9D00ECF340 /* Viewrito */,
+				79DF7B2E2C03004D00ECF340 /* Viewrito */,
+				79DF7B512C03090F00ECF340 /* Viewrito */,
 			);
 			productName = wordcounter;
 			productReference = 796F421729C5FD4600FBFDF5 /* wordcounter.app */;
@@ -239,6 +248,7 @@
 			mainGroup = 796F420E29C5FD4600FBFDF5;
 			packageReferences = (
 				79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */,
 			);
 			productRefGroup = 796F421829C5FD4600FBFDF5 /* Products */;
 			projectDirPath = "";
@@ -440,7 +450,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wordcounter/wordcounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023111800;
+				CURRENT_PROJECT_VERSION = 2023112000;
 				DEVELOPMENT_TEAM = BDU85ET24K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = wordcounter/Info.plist;
@@ -453,12 +463,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.1;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mgchoi.wordcounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -469,7 +483,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wordcounter/wordcounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023111800;
+				CURRENT_PROJECT_VERSION = 2023112000;
 				DEVELOPMENT_TEAM = BDU85ET24K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = wordcounter/Info.plist;
@@ -482,12 +496,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.1;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mgchoi.wordcounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
@@ -515,6 +533,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mgdgc/Viewrito";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -526,6 +552,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		79DF7B2B2C02FF9D00ECF340 /* Viewrito */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Viewrito;
+		};
+		79DF7B2E2C03004D00ECF340 /* Viewrito */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Viewrito;
+		};
+		79DF7B512C03090F00ECF340 /* Viewrito */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */;
+			productName = Viewrito;
+		};
 		79E13EC02B05F3380067128A /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
