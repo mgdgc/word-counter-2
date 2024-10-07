@@ -9,6 +9,9 @@ import Foundation
 import SwiftData
 
 
+typealias Writing = WordCounterSchemaV2.Writing
+
+
 // MARK: - Schema V1
 
 enum WordCounterSchemaV1: VersionedSchema {

@@ -52,6 +52,9 @@
 				Resources/InfoPlist.xcstrings,
 				Resources/Localizable.xcstrings,
 				Source/Data/Models/Writing.swift,
+				Source/Data/Persistence/Persistence.swift,
+				Source/Data/Persistence/PersistenceProvider.swift,
+				Source/Data/Persistence/WritingClient.swift,
 				"Source/Utils/Date+Extension.swift",
 			);
 			target = 79C08D3C2CB421A90003EFF7 /* WordCounter-visionOS */;
@@ -62,6 +65,10 @@
 				Resources/InfoPlist.xcstrings,
 				Resources/Localizable.xcstrings,
 				Source/Data/Models/Writing.swift,
+				Source/Data/Persistence/Persistence.swift,
+				Source/Data/Persistence/PersistenceProvider.swift,
+				Source/Data/Persistence/WritingClient.swift,
+				"Source/Utils/Date+Extension.swift",
 			);
 			target = 79C08D7C2CB426E10003EFF7 /* WordCounter-iPadOS */;
 		};

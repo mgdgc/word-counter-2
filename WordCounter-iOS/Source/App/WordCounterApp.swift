@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
+import ComposableArchitecture
 
 @main
 struct WordCounterApp: App {
     
-    
+    static let store = Store(initialState: AppFeature.State()) {
+        AppFeature()
+    }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView(store: WordCounterApp.store)
         }
+        .modelContainer(PersistenceProvider.shared.container)
     }
 }
