@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79C08D382CB421800003EFF7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D372CB421800003EFF7 /* ComposableArchitecture */; };
+		79C08D422CB421A90003EFF7 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D412CB421A90003EFF7 /* RealityKitContent */; };
+		79C08D602CB423310003EFF7 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D5F2CB423310003EFF7 /* SwiftKeychainWrapper */; };
+		79C08D622CB423350003EFF7 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D612CB423350003EFF7 /* Viewrito */; };
+		79C08D642CB4233F0003EFF7 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D632CB4233F0003EFF7 /* SwiftKeychainWrapper */; };
+		79C08D662CB4233F0003EFF7 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D652CB4233F0003EFF7 /* Viewrito */; };
+		79C08D682CB4233F0003EFF7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 79C08D672CB4233F0003EFF7 /* ComposableArchitecture */; };
 		79DF7B2C2C02FF9D00ECF340 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79DF7B2B2C02FF9D00ECF340 /* Viewrito */; };
 		79DF7B2F2C03004D00ECF340 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79DF7B2E2C03004D00ECF340 /* Viewrito */; };
 		79DF7B522C03090F00ECF340 /* Viewrito in Frameworks */ = {isa = PBXBuildFile; productRef = 79DF7B512C03090F00ECF340 /* Viewrito */; };
@@ -15,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		796F421729C5FD4600FBFDF5 /* wordcounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordcounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C08D262CB421470003EFF7 /* WordCounter-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WordCounter-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C08D3D2CB421A90003EFF7 /* WordCounter-visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WordCounter-visionOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C08D402CB421A90003EFF7 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -25,10 +35,20 @@
 			);
 			target = 796F421629C5FD4600FBFDF5 /* wordcounter */;
 		};
+		79C08D4D2CB421AA0003EFF7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 79C08D3C2CB421A90003EFF7 /* WordCounter-visionOS */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		79C08D042CB4207D0003EFF7 /* wordcounter */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (79C08D212CB4207D0003EFF7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = wordcounter; sourceTree = "<group>"; };
+		79C08D272CB421470003EFF7 /* WordCounter-iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "WordCounter-iOS"; sourceTree = "<group>"; };
+		79C08D352CB4216F0003EFF7 /* Common */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Common; sourceTree = "<group>"; };
+		79C08D3E2CB421A90003EFF7 /* WordCounter-visionOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (79C08D4D2CB421AA0003EFF7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "WordCounter-visionOS"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,13 +63,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		79C08D232CB421470003EFF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C08D602CB423310003EFF7 /* SwiftKeychainWrapper in Frameworks */,
+				79C08D622CB423350003EFF7 /* Viewrito in Frameworks */,
+				79C08D382CB421800003EFF7 /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C08D3A2CB421A90003EFF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C08D642CB4233F0003EFF7 /* SwiftKeychainWrapper in Frameworks */,
+				79C08D662CB4233F0003EFF7 /* Viewrito in Frameworks */,
+				79C08D682CB4233F0003EFF7 /* ComposableArchitecture in Frameworks */,
+				79C08D422CB421A90003EFF7 /* RealityKitContent in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		796F420E29C5FD4600FBFDF5 = {
 			isa = PBXGroup;
 			children = (
+				79C08D352CB4216F0003EFF7 /* Common */,
 				79C08D042CB4207D0003EFF7 /* wordcounter */,
+				79C08D272CB421470003EFF7 /* WordCounter-iOS */,
+				79C08D3E2CB421A90003EFF7 /* WordCounter-visionOS */,
+				79C08D3F2CB421A90003EFF7 /* Packages */,
+				79C08D5E2CB423310003EFF7 /* Frameworks */,
 				796F421829C5FD4600FBFDF5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,8 +104,25 @@
 			isa = PBXGroup;
 			children = (
 				796F421729C5FD4600FBFDF5 /* wordcounter.app */,
+				79C08D262CB421470003EFF7 /* WordCounter-iOS.app */,
+				79C08D3D2CB421A90003EFF7 /* WordCounter-visionOS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		79C08D3F2CB421A90003EFF7 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				79C08D402CB421A90003EFF7 /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		79C08D5E2CB423310003EFF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +154,58 @@
 			productReference = 796F421729C5FD4600FBFDF5 /* wordcounter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		79C08D252CB421470003EFF7 /* WordCounter-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79C08D312CB421480003EFF7 /* Build configuration list for PBXNativeTarget "WordCounter-iOS" */;
+			buildPhases = (
+				79C08D222CB421470003EFF7 /* Sources */,
+				79C08D232CB421470003EFF7 /* Frameworks */,
+				79C08D242CB421470003EFF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				79C08D272CB421470003EFF7 /* WordCounter-iOS */,
+				79C08D352CB4216F0003EFF7 /* Common */,
+			);
+			name = "WordCounter-iOS";
+			packageProductDependencies = (
+				79C08D372CB421800003EFF7 /* ComposableArchitecture */,
+				79C08D5F2CB423310003EFF7 /* SwiftKeychainWrapper */,
+				79C08D612CB423350003EFF7 /* Viewrito */,
+			);
+			productName = "WordCounter-iOS";
+			productReference = 79C08D262CB421470003EFF7 /* WordCounter-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79C08D3C2CB421A90003EFF7 /* WordCounter-visionOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79C08D4E2CB421AA0003EFF7 /* Build configuration list for PBXNativeTarget "WordCounter-visionOS" */;
+			buildPhases = (
+				79C08D392CB421A90003EFF7 /* Sources */,
+				79C08D3A2CB421A90003EFF7 /* Frameworks */,
+				79C08D3B2CB421A90003EFF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				79C08D3E2CB421A90003EFF7 /* WordCounter-visionOS */,
+			);
+			name = "WordCounter-visionOS";
+			packageProductDependencies = (
+				79C08D412CB421A90003EFF7 /* RealityKitContent */,
+				79C08D632CB4233F0003EFF7 /* SwiftKeychainWrapper */,
+				79C08D652CB4233F0003EFF7 /* Viewrito */,
+				79C08D672CB4233F0003EFF7 /* ComposableArchitecture */,
+			);
+			productName = "WordCounter-visionOS";
+			productReference = 79C08D3D2CB421A90003EFF7 /* WordCounter-visionOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,11 +213,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					796F421629C5FD4600FBFDF5 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					79C08D252CB421470003EFF7 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					79C08D3C2CB421A90003EFF7 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -119,12 +240,15 @@
 			packageReferences = (
 				79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */,
+				79C08D362CB421800003EFF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 796F421829C5FD4600FBFDF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				796F421629C5FD4600FBFDF5 /* wordcounter */,
+				79C08D252CB421470003EFF7 /* WordCounter-iOS */,
+				79C08D3C2CB421A90003EFF7 /* WordCounter-visionOS */,
 			);
 		};
 /* End PBXProject section */
@@ -137,10 +261,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		79C08D242CB421470003EFF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C08D3B2CB421A90003EFF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		796F421329C5FD4600FBFDF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C08D222CB421470003EFF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C08D392CB421A90003EFF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,6 +488,142 @@
 			};
 			name = Release;
 		};
+		79C08D322CB421480003EFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WordCounter-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = BDU85ET24K;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgchoi.wordcounter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79C08D332CB421480003EFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WordCounter-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = BDU85ET24K;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgchoi.wordcounter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79C08D4F2CB421AA0003EFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WordCounter-visionOS/Preview Content\"";
+				DEVELOPMENT_TEAM = BDU85ET24K;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgchoi.wordcounter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 1.3;
+			};
+			name = Debug;
+		};
+		79C08D502CB421AA0003EFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WordCounter-visionOS/Preview Content\"";
+				DEVELOPMENT_TEAM = BDU85ET24K;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgchoi.wordcounter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 1.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -357,28 +645,88 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		79C08D312CB421480003EFF7 /* Build configuration list for PBXNativeTarget "WordCounter-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79C08D322CB421480003EFF7 /* Debug */,
+				79C08D332CB421480003EFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79C08D4E2CB421AA0003EFF7 /* Build configuration list for PBXNativeTarget "WordCounter-visionOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79C08D4F2CB421AA0003EFF7 /* Debug */,
+				79C08D502CB421AA0003EFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		79C08D362CB421800003EFF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 1.15.0;
+			};
+		};
 		79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mgdgc/Viewrito";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				kind = exactVersion;
+				version = 0.0.2;
 			};
 		};
 		79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
+				kind = exactVersion;
+				version = 4.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		79C08D372CB421800003EFF7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C08D362CB421800003EFF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		79C08D412CB421A90003EFF7 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+		79C08D5F2CB423310003EFF7 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		79C08D612CB423350003EFF7 /* Viewrito */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */;
+			productName = Viewrito;
+		};
+		79C08D632CB4233F0003EFF7 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79E13EBF2B05F3380067128A /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		79C08D652CB4233F0003EFF7 /* Viewrito */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79DF7B502C03090F00ECF340 /* XCRemoteSwiftPackageReference "Viewrito" */;
+			productName = Viewrito;
+		};
+		79C08D672CB4233F0003EFF7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79C08D362CB421800003EFF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		79DF7B2B2C02FF9D00ECF340 /* Viewrito */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Viewrito;
